@@ -44,3 +44,55 @@ input, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-rad
 .status { margin: 8px 0 0; font-weight: 600; }
 .status.success { color: #166534; }
 .status.error { color: #b91c1c; }
+
+/* Animation base */
+.hero {
+  background-size: 200% 200%;
+  animation: heroGradient 12s ease infinite;
+}
+
+@keyframes heroGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.08);
+}
+
+.btn {
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

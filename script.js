@@ -1,3 +1,25 @@
+function initRevealAnimations() {
+  const elements = document.querySelectorAll('.reveal, .card, .hero-actions .btn');
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach((el) => el.classList.add('visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  elements.forEach((el, idx) => {
+    el.style.transitionDelay = `${Math.min(idx * 40, 280)}ms`;
+    observer.observe(el);
+  });
+}
+
 async function submitOrder(event) {
   event.preventDefault();
   const form = event.target;
@@ -57,3 +79,5 @@ async function submitContact(event) {
     status.className = 'status error';
   }
 }
+
+document.addEventListener('DOMContentLoaded', initRevealAnimations);
