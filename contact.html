@@ -1,5 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | MRK EGG</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+<header class="header simple-header"><div class="container nav-wrap"><a class="logo" href="index.html">🥚 MRK EGG</a><nav class="nav"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="delivery.html">Delivery</a><a href="contact.html">Contact</a></nav></div></header>
+<main class="section"><div class="container narrow"><h1>Contact Us</h1><p>📞 03292427798</p><p>📱 WhatsApp: 03270447263</p><p>📍 Lahore (Serving All Pakistan)</p><p>📧 hafizmuhammadmeeladraza@gmail.com</p><p><a class="btn btn-whatsapp" href="https://wa.me/923270447263?text=Assalam%20o%20Alaikum%2C%20mujhe%20eggs%20order%20karne%20hain">Order on WhatsApp</a></p>
+
+<h2>Quick Order Form (Cash / Online Payment)</h2>
+<form class="form" onsubmit="submitOrder(event)">
+<label>Name<input name="customer" type="text" required /></label>
+<label>Phone<input name="phone" type="tel" required /></label>
+<label>City<input name="city" type="text" value="Lahore" required /></label>
+<label>Order Details<textarea name="items" placeholder="e.g. 2 dozen farm eggs + 1 tray wholesale" required></textarea></label>
+<label>Payment Method
+<select name="payment_method" required>
+<option value="cash">Cash on Delivery</option>
+<option value="online">Online Payment</option>
+</select>
+</label>
+<button type="submit" class="btn btn-primary">Place Order</button>
+<p id="order-status" class="status" aria-live="polite"></p>
+</form>
+</div></main>
 <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Contact | Egg Company</title><link rel="stylesheet" href="styles.css" />  <script defer src="script.js"></script></head>
 <body>
 <header class="header simple-header"><div class="container nav-wrap"><a class="logo" href="index.html">🥚 Egg Company</a><nav class="nav"><a href="index.html">Home</a><a href="products.html">Products</a><a href="about.html">About</a><a href="delivery.html">Delivery</a><a href="contact.html">Contact</a></nav></div></header>
