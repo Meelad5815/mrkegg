@@ -105,6 +105,22 @@ def order_submit():
 
     return jsonify({"ok": True, "message": message})
 
+    if errors:
+        return jsonify({"ok": False, "errors": errors}), 400
+
+    entry = {
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "name": name,
+        "phone": phone,
+        "message": message,
+        "ip": request.headers.get("X-Forwarded-For", request.remote_addr),
+    }
+
+    with CONTACT_LOG.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+    return jsonify({"ok": True, "message": "Thanks! We received your message."})
+
 
 @app.get("/health")
 def health():
